@@ -14,13 +14,13 @@ class Navbar extends Component {
     super(props)
     this.state = { format: 'hex', open: false }
     this.handleFormatChange = this.handleFormatChange.bind(this)
-    this.closeSnackber = this.closeSnackber.bind(this)
+    this.closeSnackbar = this.closeSnackbar.bind(this)
   }
   handleFormatChange(evt){
     this.setState({ format: evt.target.value, open: true })
     this.props.handleChange(evt.target.value)
   }
-  closeSnackber() {
+  closeSnackbar() {
     this.setState({ open: false })
   }
   render() {
@@ -57,9 +57,9 @@ class Navbar extends Component {
                   ContentProps={{
                     'aria-describedby': 'message-id'
                   }}
-                  onClose={this.closeSnackber}
+                  onClose={this.closeSnackbar}
                   action={[
-                    <IconButton onClick={this.closeSnackber} key='close' aria-label='close'>
+                    <IconButton onClick={this.closeSnackbar} key='close' aria-label='close'>
                       <CloseIcon />
                     </IconButton>
                   ]}
