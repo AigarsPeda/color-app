@@ -23,7 +23,7 @@ class App extends Component {
                path='/palette/:id'
                render={(routeProps) => 
                 <Palette palette={generatePalette(this.findPalette(routeProps.match.params.id))} />
-              } 
+               } 
         />
       </Switch>
       // <div>
