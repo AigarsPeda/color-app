@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/styles'
 const styles = {
   root: {
     backgroundColor: "blue",
-    height: "100%",
+    height: "100vh",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center"
@@ -44,7 +44,7 @@ class PaletteList extends Component {
           </nav>
           <div className={classes.palettes}>
             {palettes.map(palette => (
-              <MiniPalette {...palette}/>
+              <MiniPalette {...palette} />
             ))}
           </div>
         </div>
