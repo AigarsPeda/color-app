@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ColorBox from './ColorBox'
 
+
 class SingleColorPalette extends Component {
   constructor(props) {
     super(props)
@@ -20,7 +21,7 @@ class SingleColorPalette extends Component {
   }
   render() {
     const colorBoxes = this._shades.map(color => (
-      <ColorBox key={color.id} 
+      <ColorBox key={color.name}
                 name={color.name}
                 background={color.hex}
                 showLink={false}
