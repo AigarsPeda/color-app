@@ -33,9 +33,9 @@ class SingleColorPalette extends Component {
         key={color.name}
         name={color.name}
         background={color[format]}
-        showLink={false}
+        showingFullPalette={false}
       />
-    ));
+    ))
     return (
       <div className='SingleColorPalette Palette'>
         <Navbar handleChange={this.changeFormat} showingAllColors={false} />
