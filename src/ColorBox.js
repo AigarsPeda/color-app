@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/styles'
 import chroma from 'chroma-js'
 import './ColorBox.css'
 
-const style = {
+const styles = {
   ColorBox: {
     width: '20%',
     height: props => props.showingFullPalette ? '25%' : '50%',
@@ -50,7 +50,7 @@ const style = {
     textAlign: 'center',
     outline: 'none',
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    fontSize: 'rem',
+    fontSize: '1rem',
     lineHeight: '30px',
     textTransform: 'uppercase',
     border: 'none',
@@ -80,7 +80,7 @@ class ColorBox extends Component {
           <div style={{backgroundColor: background}} className={`copy-overlay ${copied && 'show'}`} />
           <div className={`copy-msg ${copied && 'show'}`} >
             <h1>Copied!</h1>
-            <p className={classes.copyText}>{this.props.background}</p>
+            <p className={classes.CopyText}>{this.props.background}</p>
           </div>
           <div className='copy-container'>
             <div className='box-content'>
@@ -99,4 +99,4 @@ class ColorBox extends Component {
   }
 }
 
-export default  withStyles(style)(ColorBox)
+export default  withStyles(styles)(ColorBox)
