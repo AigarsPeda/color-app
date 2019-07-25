@@ -82,7 +82,7 @@ const styles = {
     zIndex: '10',
     position: 'absolute'
   },
-  CopyMesasage: {
+  CopyMessage: {
     position: 'fixed',
     left: '0',
     right: '0',
@@ -139,7 +139,7 @@ class ColorBox extends Component {
       <CopyToClipboard text={background} onCopy={this.changeCopyState}>
         <div style={{backgroundColor: background}} className={classes.ColorBox}>
           <div style={{backgroundColor: background}} className={`${classes.CopyOverlay} ${copied && classes.ShowOverlay}`} />
-          <div className={`${classes.CopyMesasage} ${copied && classes.ShowMessage}`} >
+          <div className={`${classes.CopyMessage} ${copied && classes.ShowMessage}`} >
             <h1>Copied!</h1>
             <p className={classes.CopyText}>{this.props.background}</p>
           </div>
