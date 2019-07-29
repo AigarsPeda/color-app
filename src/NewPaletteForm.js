@@ -1,24 +1,24 @@
-import React, { Component } from "react"
-import classNames from "classnames"
-import { withStyles } from "@material-ui/core/styles"
-import Drawer from "@material-ui/core/Drawer"
-import CssBaseline from "@material-ui/core/CssBaseline"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
-import Divider from "@material-ui/core/Divider"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
+import React, { Component } from 'react'
+import classNames from 'classnames'
+import { withStyles } from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 const styles = theme => ({
   root: {
-    display: "flex"
+    display: 'flex'
   },
   appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
+    transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     })
@@ -26,7 +26,7 @@ const styles = theme => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
+    transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen
     })
@@ -36,7 +36,7 @@ const styles = theme => ({
     marginRight: 20
   },
   hide: {
-    display: "none"
+    display: 'none'
   },
   drawer: {
     width: drawerWidth,
@@ -46,46 +46,46 @@ const styles = theme => ({
     width: drawerWidth
   },
   drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: "0 8px",
+    display: 'flex',
+    alignItems: 'center',
+    padding: '0 8px',
     ...theme.mixins.toolbar,
-    justifyContent: "flex-end"
+    justifyContent: 'flex-end'
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create("margin", {
+    transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
     marginLeft: -drawerWidth
   },
   contentShift: {
-    transition: theme.transitions.create("margin", {
+    transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen
     }),
     marginLeft: 0
   }
-});
+})
 
 class NewPaletteForm extends Component {
   state = {
     open: false
-  };
+  }
 
   handleDrawerOpen = () => {
-    this.setState({ open: true });
-  };
+    this.setState({ open: true })
+  }
 
   handleDrawerClose = () => {
-    this.setState({ open: false });
-  };
+    this.setState({ open: false })
+  }
 
   render() {
-    const { classes } = this.props;
-    const { open } = this.state;
+    const { classes } = this.props
+    const { open } = this.state
 
     return (
       <div className={classes.root}>
@@ -134,7 +134,7 @@ class NewPaletteForm extends Component {
           <div className={classes.drawerHeader} />
         </main>
       </div>
-    );
+    )
   }
 }
-export default withStyles(styles, { withTheme: true })(NewPaletteForm);
+export default withStyles(styles, { withTheme: true })(NewPaletteForm)
