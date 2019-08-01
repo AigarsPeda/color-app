@@ -106,10 +106,10 @@ class NewPaletteForm extends Component {
     )
 
     ValidatorForm.addValidationRule('isPaletteNameUnique', value => 
-    this.props.palettes.every(
-      ({paletteName}) => paletteName.toLowerCase() !== value.toLowerCase()
+      this.props.palettes.every(
+        ({paletteName}) => paletteName.toLowerCase() !== value.toLowerCase()
+      )
     )
-  )
   }
   
   handleDrawerOpen = () => {
