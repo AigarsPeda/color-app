@@ -90,6 +90,7 @@ class NewPaletteForm extends Component {
     this.addNewColor = this.addNewColor.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.removeColor = this.removeColor.bind(this)
   }
 
   componentDidMount() {
@@ -135,7 +136,7 @@ class NewPaletteForm extends Component {
     })
   }
 
-  handleSubmit() {
+  handleSubmit () {
     let newName = this.state.newPaletteName
     const newPalette = {
       paletteName: newName,
@@ -144,6 +145,12 @@ class NewPaletteForm extends Component {
     }
     this.props.savePalette(newPalette)
     this.props.history.push('/')
+  }
+
+  removeColor (colorName) {
+    this.setState({
+      colors: this.state.colors.filter(color => color.name !== colorName)
+    })
   }
   
   render() {
@@ -244,6 +251,7 @@ class NewPaletteForm extends Component {
             <DraggableColorBox color={color.color}
                                name={color.name}
                                key={color.name}
+                               handleClick={() => this.removeColor(color.name)}
             />
           ))} 
         </main>
