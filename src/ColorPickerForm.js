@@ -54,22 +54,22 @@ class ColorPickerForm extends Component {
         <ChromePicker color={currentColor} 
                         onChangeComplete={this.updateCurrentColor}
           /> 
-          <ValidatorForm onSubmit={this.handleSubmit}>
-            <TextValidator value={newColorName} 
-                           name='newColorName'
-                           onChange={this.handleChange}
-                           validators={['required', 'isColorNameUnique', 'isColorUnique']}
-                           errorMessages={['this field is required', 'Color name must be unique', 'Color already used']}
-            />
-            <Button variant='contained' 
-                    type='submit'
-                    color='primary'
-                    disabled={paletteIsFull}
-                    style={{backgroundColor: paletteIsFull ? 'gray' : this.state.currentColor}}
-            >
-              {paletteIsFull ? 'Palette Full' : 'Add Color'}
-            </Button>
-          </ValidatorForm>
+        <ValidatorForm onSubmit={this.handleSubmit}>
+          <TextValidator value={newColorName} 
+                          name='newColorName'
+                          onChange={this.handleChange}
+                          validators={['required', 'isColorNameUnique', 'isColorUnique']}
+                          errorMessages={['this field is required', 'Color name must be unique', 'Color already used']}
+          />
+          <Button variant='contained' 
+                  type='submit'
+                  color='primary'
+                  disabled={paletteIsFull}
+                  style={{backgroundColor: paletteIsFull ? 'gray' : this.state.currentColor}}
+          >
+            {paletteIsFull ? 'Palette Full' : 'Add Color'}
+          </Button>
+        </ValidatorForm>
       </div>
     )
   }
