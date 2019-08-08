@@ -88,16 +88,16 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
-              
-              <PaletteMetaForm palettes={palettes}
-                               handleSubmit={handleSubmit}
-              />
-              <Link to='/'>
-                <Button variant='contained' color='secondary'>
-                  Go Back!
-                </Button>
-              </Link>
-            </div>
+            <PaletteMetaForm 
+              palettes={palettes}
+              handleSubmit={handleSubmit}
+            />
+            <Link to='/'>
+              <Button variant='contained' color='secondary'>
+                Go Back!
+              </Button>
+            </Link>
+          </div>
         </AppBar>
       </div>
     )
