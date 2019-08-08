@@ -14,9 +14,10 @@ class PaletteMetaForm extends Component {
     this.state = {
       open: false,
       newPaletteName: ''
-    };
+    }
     this.handleChange = this.handleChange.bind(this);
   }
+
   componentDidMount() {
     ValidatorForm.addValidationRule('isPaletteNameUnique', value =>
       this.props.palettes.every(
@@ -24,18 +25,20 @@ class PaletteMetaForm extends Component {
       )
     );
   }
+
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value
     })
   }
+
   handleClickOpen = () => {
     this.setState({ open: true })
-  };
+  }
 
   handleClose = () => {
     this.setState({ open: false })
-  };
+  }
 
   render() {
     const { newPaletteName } = this.state
@@ -89,4 +92,5 @@ class PaletteMetaForm extends Component {
     );
   }
 }
-export default PaletteMetaForm;
+
+export default PaletteMetaForm
