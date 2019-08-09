@@ -48,9 +48,8 @@ class PaletteMetaForm extends Component {
     return (
       <Dialog
         open={this.state.open}
-        onClose={this.handleClose}
-        aria-labelledby='form-dialog-title'
         onClose={hideForm}
+        aria-labelledby='form-dialog-title'
       >
         <DialogTitle id='form-dialog-title'>Choose a Palette Name</DialogTitle>
         <ValidatorForm
@@ -73,10 +72,17 @@ class PaletteMetaForm extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={hideForm} color='primary'>
+            <Button 
+              onClick={hideForm} 
+              color='primary'
+            >
               Cancel
             </Button>
-            <Button variant='contained' color='primary' type='submit'>
+            <Button 
+              variant='contained' 
+              color='primary' 
+              type='submit'
+            >
                 Save Palette
             </Button>
           </DialogActions>
