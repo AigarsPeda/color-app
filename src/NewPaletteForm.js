@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
-import { withStyles } from '@material-ui/core/styles'
-import { Button } from '@material-ui/core'
-import classNames from 'classnames'
-import Drawer from '@material-ui/core/Drawer'
-import Typography from '@material-ui/core/Typography'
-import Divider from '@material-ui/core/Divider'
-import IconButton from '@material-ui/core/IconButton'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import DraggableColorList from './DraggableColorList'
-import arrayMove from 'array-move'
-import PaletteFormNav from './PaletteFormNav'
-import ColorPickerForm from './ColorPickerForm'
+import React, { Component } from "react"
+import { withStyles } from "@material-ui/core/styles"
+import { Button } from "@material-ui/core"
+import classNames from "classnames"
+import Drawer from "@material-ui/core/Drawer"
+import Typography from "@material-ui/core/Typography"
+import Divider from "@material-ui/core/Divider"
+import IconButton from "@material-ui/core/IconButton"
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
+import DraggableColorList from "./DraggableColorList"
+import arrayMove from "array-move"
+import PaletteFormNav from "./PaletteFormNav"
+import ColorPickerForm from "./ColorPickerForm"
 
 const drawerWidth = 400
 
 const styles = theme => ({
   root: {
-    display: 'flex'
+    display: "flex"
   },
   hide: {
-    display: 'none'
+    display: "none"
   },
   drawer: {
     width: drawerWidth,
@@ -27,46 +27,46 @@ const styles = theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    display: 'flex',
-    alignItems: 'center'
+    display: "flex",
+    alignItems: "center"
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '0 8px',
+    display: "flex",
+    alignItems: "center",
+    padding: "0 8px",
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end'
+    justifyContent: "flex-end"
   },
   content: {
     flexGrow: 1,
-    height: 'calc(100vh - 64px)',
+    height: "calc(100vh - 64px)",
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
     marginLeft: -drawerWidth
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen
     }),
     marginLeft: 0
   },
   container: {
-    width: '90%',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
+    width: "90%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
   },
   buttons: {
-    width: '100%'
+    width: "100%"
   },
   button: {
-    width: '50%'
+    width: "50%"
   }
 })
 
@@ -80,7 +80,7 @@ class NewPaletteForm extends Component {
       open: false,
       colors: this.props.palettes[0].colors
     }
-    
+
     this.addNewColor = this.addNewColor.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -89,7 +89,6 @@ class NewPaletteForm extends Component {
     this.addRandomColor = this.addRandomColor.bind(this)
   }
 
-  
   handleDrawerOpen = () => {
     this.setState({ open: true })
   }
@@ -98,47 +97,50 @@ class NewPaletteForm extends Component {
     this.setState({ open: false })
   }
 
-  addNewColor (newColor) {
-    this.setState({ colors: [...this.state.colors, newColor], newColorName: '' })
-  }
-
-  handleChange (evt) {
+  addNewColor(newColor) {
     this.setState({
-      [evt.target.name] : evt.target.value
+      colors: [...this.state.colors, newColor],
+      newColorName: ""
     })
   }
 
-  handleSubmit (newPalette) {
+  handleChange(evt) {
+    this.setState({
+      [evt.target.name]: evt.target.value
+    })
+  }
+
+  handleSubmit(newPalette) {
     newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-")
     newPalette.colors = this.state.colors
 
     this.props.savePalette(newPalette)
-    this.props.history.push('/')
+    this.props.history.push("/")
   }
 
-  removeColor (colorName) {
+  removeColor(colorName) {
     this.setState({
       colors: this.state.colors.filter(color => color.name !== colorName)
     })
   }
 
-  onSortEnd = ({oldIndex, newIndex}) => {
-    this.setState(({colors}) => ({
-      colors: arrayMove(colors, oldIndex, newIndex),
+  onSortEnd = ({ oldIndex, newIndex }) => {
+    this.setState(({ colors }) => ({
+      colors: arrayMove(colors, oldIndex, newIndex)
     }))
   }
 
-  clearColors () {
+  clearColors() {
     this.setState({ colors: [] })
   }
 
-  addRandomColor () {
+  addRandomColor() {
     const allColors = this.props.palettes.map(p => p.colors).flat()
     var rand = Math.floor(Math.random() * allColors.length)
     const randomColor = allColors[rand]
     this.setState({ colors: [...this.state.colors, randomColor] })
   }
-  
+
   render() {
     const { classes, maxColors, palettes } = this.props
     const { open, colors } = this.state
@@ -146,15 +148,16 @@ class NewPaletteForm extends Component {
 
     return (
       <div className={classes.root}>
-        <PaletteFormNav open={open} 
-                        palettes={palettes}
-                        handleSubmit={this.handleSubmit}
-                        handleDrawerOpen={this.handleDrawerOpen}
+        <PaletteFormNav
+          open={open}
+          palettes={palettes}
+          handleSubmit={this.handleSubmit}
+          handleDrawerOpen={this.handleDrawerOpen}
         />
         <Drawer
           className={classes.drawer}
-          variant='persistent'
-          anchor='left'
+          variant="persistent"
+          anchor="left"
           open={open}
           classes={{
             paper: classes.drawerPaper
@@ -167,27 +170,32 @@ class NewPaletteForm extends Component {
           </div>
           <Divider />
           <div className={classes.container}>
-            <Typography variant='h4' gutterBottom> Disign Your Palette </Typography>
+            <Typography variant="h4" gutterBottom>
+              Disign Your Palette
+            </Typography>
             <div className={classes.buttons}>
-              <Button variant='contained' 
-                      color='secondary'
-                      onClick={this.clearColors}
-                      className={classes.button}
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={this.clearColors}
+                className={classes.button}
               >
                 Clear Palette
               </Button>
-              <Button variant='contained' 
-                      color='primary'
-                      onClick={this.addRandomColor}
-                      disabled={paletteIsFull}
-                      className={classes.button}
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={this.addRandomColor}
+                disabled={paletteIsFull}
+                className={classes.button}
               >
                 Random Color
               </Button>
             </div>
-            <ColorPickerForm paletteIsFull={paletteIsFull}
-                            addNewColor={this.addNewColor}
-                            colors={colors}
+            <ColorPickerForm
+              paletteIsFull={paletteIsFull}
+              addNewColor={this.addNewColor}
+              colors={colors}
             />
           </div>
         </Drawer>
@@ -197,10 +205,11 @@ class NewPaletteForm extends Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          <DraggableColorList colors={this.state.colors}
-                              removeColor={this.removeColor}
-                              axis='xy'
-                              onSortEnd={this.onSortEnd}
+          <DraggableColorList
+            colors={this.state.colors}
+            removeColor={this.removeColor}
+            axis="xy"
+            onSortEnd={this.onSortEnd}
           />
         </main>
       </div>

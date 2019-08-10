@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/styles'
 import Navbar from './Navbar'
@@ -30,7 +30,7 @@ class SingleColorPalette extends Component {
     this.setState({ format: val })
   }
   render() {
-    const { format } = this.state;
+    const { format } = this.state
     const { paletteName, emoji, id } = this.props.palette
     const { classes } = this.props
     const colorBoxes = this._shades.map(color => (
