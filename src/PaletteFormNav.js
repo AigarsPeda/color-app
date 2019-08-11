@@ -1,49 +1,49 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
-import { Button } from "@material-ui/core"
-import { withStyles } from "@material-ui/core/styles"
-import classNames from "classnames"
-import CssBaseline from "@material-ui/core/CssBaseline"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
-import PaletteMetaForm from "./PaletteMetaForm"
-import styles from "./styles/PaletteFormNavStyles"
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import classNames from "classnames";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import PaletteMetaForm from "./PaletteMetaForm";
+import styles from "./styles/PaletteFormNavStyles";
+import AddToPhotosIcon from "@material-ui/icons/AddToPhotos";
 
 class PaletteFormNav extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       formShowing: false,
       newPaletteName: ""
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.showForm = this.showForm.bind(this)
-    this.hideForm = this.hideForm.bind(this)
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.showForm = this.showForm.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value
-    })
+    });
   }
 
   showForm() {
     this.setState({
       formShowing: true
-    })
+    });
   }
 
   hideForm() {
     this.setState({
       formShowing: false
-    })
+    });
   }
 
   render() {
-    const { classes, open, palettes, handleSubmit } = this.props
+    const { classes, open, palettes, handleSubmit } = this.props;
 
     return (
       <div className={classes.root}>
@@ -62,7 +62,7 @@ class PaletteFormNav extends Component {
               onClick={this.props.handleDrawerOpen}
               className={classNames(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon />
+              <AddToPhotosIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
               Create A Palette
@@ -70,11 +70,7 @@ class PaletteFormNav extends Component {
           </Toolbar>
           <div className={classes.navBtns}>
             <Link to="/">
-              <Button
-                variant="contained"
-                color="secondary"
-                className={classes.button}
-              >
+              <Button variant="contained" color="secondary" className={classes.button}>
                 Go Back!
               </Button>
             </Link>
@@ -96,8 +92,8 @@ class PaletteFormNav extends Component {
           />
         )}
       </div>
-    )
+    );
   }
 }
 
-export default withStyles(styles, { withTheme: true })(PaletteFormNav)
+export default withStyles(styles, { withTheme: true })(PaletteFormNav);
