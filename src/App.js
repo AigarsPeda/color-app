@@ -26,13 +26,16 @@ class App extends Component {
   savePalette(newPalette) {
     console.log(newPalette);
     this.setState(
-      { palettes: [...this.state.palettes, newPalette] }, 
+      { palettes: [...this.state.palettes, newPalette] },
       this.syncLocalStorage
     );
   }
 
   syncLocalStorage() {
-    window.localStorage.setItem("palettes", JSON.stringify(this.state.palettes));
+    window.localStorage.setItem(
+      "palettes",
+      JSON.stringify(this.state.palettes)
+    );
   }
 
   render() {
@@ -41,7 +44,9 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={routeProps => <PaletteList palettes={this.state.palettes} {...routeProps} />}
+          render={routeProps => (
+            <PaletteList palettes={this.state.palettes} {...routeProps} />
+          )}
         />
         <Route
           exact
@@ -58,7 +63,11 @@ class App extends Component {
           exact
           path="/palette/:id"
           render={routeProps => (
-            <Palette palette={generatePalette(this.findPalette(routeProps.match.params.id))} />
+            <Palette
+              palette={generatePalette(
+                this.findPalette(routeProps.match.params.id)
+              )}
+            />
           )}
         />
         <Route
@@ -66,7 +75,9 @@ class App extends Component {
           path="/palette/:paletteId/:colorId"
           render={routeProps => (
             <SingleColorPalette
-              palette={generatePalette(this.findPalette(routeProps.match.params.paletteId))}
+              palette={generatePalette(
+                this.findPalette(routeProps.match.params.paletteId)
+              )}
               colorId={routeProps.match.params.colorId}
             />
           )}
