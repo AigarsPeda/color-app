@@ -11,15 +11,15 @@ export default {
     cursor: "pointer",
     marginBottom: "-3.5px",
     "&:hover button": {
-      opacity: "1"
+      opacity: 1
     },
     [sizes.down("lg")]: {
       width: "25%",
-      height: props => (props.showingFullPalette ? "20%" : "50%")
+      height: props => (props.showingFullPalette ? "20%" : "33.3333%")
     },
     [sizes.down("md")]: {
       width: "50%",
-      height: props => (props.showingFullPalette ? "10%" : "50%")
+      height: props => (props.showingFullPalette ? "10%" : "20%")
     },
     [sizes.down("xs")]: {
       width: "100%",
@@ -28,16 +28,16 @@ export default {
   },
   CopyText: {
     color: props =>
-      chroma(props.background).luminance() >= 0.6 ? "black" : "white"
+      chroma(props.background).luminance() >= 0.7 ? "black" : "white"
   },
   ColorName: {
     color: props =>
-      chroma(props.background).luminance() <= 0.09 ? "white" : "black"
+      chroma(props.background).luminance() <= 0.08 ? "white" : "black"
   },
   SeeMore: {
     color: props =>
-      chroma(props.background).luminance() >= 0.6 ? "black" : "white",
-    backgroundColor: "rgba(255, 255, 255, 0.3)",
+      chroma(props.background).luminance() >= 0.7 ? "rgba(0,0,0,0.6)" : "white",
+    background: "rgba(255, 255, 255, 0.3)",
     position: "absolute",
     border: "none",
     right: "0px",
@@ -50,7 +50,7 @@ export default {
   },
   CopyButton: {
     color: props =>
-      chroma(props.background).luminance() >= 0.6 ? "black" : "white",
+      chroma(props.background).luminance() >= 0.7 ? "rgba(0,0,0,0.6)" : "white",
     width: "100px",
     height: "30px",
     position: "absolute",
@@ -61,13 +61,13 @@ export default {
     marginTop: "-15px",
     textAlign: "center",
     outline: "none",
-    backgroundColor: "rgba(255, 255, 255, 0.3)",
+    background: "rgba(255, 255, 255, 0.3)",
     fontSize: "1rem",
     lineHeight: "30px",
     textTransform: "uppercase",
     border: "none",
     textDecoration: "none",
-    opacity: "0"
+    opacity: 0
   },
   BoxContent: {
     position: "absolute",
@@ -85,7 +85,7 @@ export default {
     zIndex: "0",
     width: "100%",
     height: "100%",
-    transition: "transform 0.5s ease-in-out",
+    transition: "transform 0.6s ease-in-out",
     transform: "scale(0.1)"
   },
   ShowOverlay: {
@@ -111,12 +111,15 @@ export default {
     "& h1": {
       fontWeight: "400",
       textShadow: "1px 2px black",
-      backgroundColor: "rgba(255, 255, 255, 0.3)",
+      background: "rgba(255, 255, 255, 0.2)",
       width: "100%",
       textAlign: "center",
       marginBottom: "0",
       padding: "1rem",
-      textTransform: "uppercase"
+      textTransform: "uppercase",
+      [sizes.down("xs")]: {
+        fontSize: "5rem"
+      }
     },
     "& p": {
       fontSize: "2rem",
@@ -128,6 +131,6 @@ export default {
     transform: "scale(1)",
     zIndex: "25",
     transition: "all 0.4s ease-in-out",
-    transitionDelay: "0.2s"
+    transitionDelay: "0.3s"
   }
 };
