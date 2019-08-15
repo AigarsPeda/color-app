@@ -7,7 +7,7 @@ import PaletteList from "./PaletteList";
 import SingleColorPalette from "./SingleColorPalette";
 import NewPaletteForm from "./NewPaletteForm";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import "./App.css";
+import Page from "./Page";
 
 class App extends Component {
   constructor(props) {
@@ -58,13 +58,13 @@ class App extends Component {
                   exact
                   path="/"
                   render={routeProps => (
-                    <div className="page">
+                    <Page>
                       <PaletteList
                         palettes={this.state.palettes}
                         deletePalette={this.deletePalette}
                         {...routeProps}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
@@ -84,27 +84,27 @@ class App extends Component {
                   exact
                   path="/palette/:id"
                   render={routeProps => (
-                    <div className="page">
+                    <Page>
                       <Palette
                         palette={generatePalette(
                           this.findPalette(routeProps.match.params.id)
                         )}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
                   exact
                   path="/palette/:paletteId/:colorId"
                   render={routeProps => (
-                    <div className="page">
+                    <Page>
                       <SingleColorPalette
                         palette={generatePalette(
                           this.findPalette(routeProps.match.params.paletteId)
                         )}
                         colorId={routeProps.match.params.colorId}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
               </Switch>
