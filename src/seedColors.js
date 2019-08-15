@@ -241,4 +241,4 @@ export default [
       { name: "ReefEncounter", color: "#079992" }
     ]
   }
-]
+];
