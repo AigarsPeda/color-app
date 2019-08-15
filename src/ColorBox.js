@@ -1,19 +1,19 @@
-import React, { Component } from "react"
-import { CopyToClipboard } from "react-copy-to-clipboard"
-import { Link } from "react-router-dom"
-import { withStyles } from "@material-ui/styles"
-import styles from "./styles/ColorBoxStyles"
+import React, { Component } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/styles";
+import styles from "./styles/ColorBoxStyles";
 
 class ColorBox extends Component {
   constructor(props) {
-    super(props)
-    this.state = { copied: false }
-    this.changeCopyState = this.changeCopyState.bind(this)
+    super(props);
+    this.state = { copied: false };
+    this.changeCopyState = this.changeCopyState.bind(this);
   }
   changeCopyState() {
     this.setState({ copied: true }, () => {
-      setTimeout(() => this.setState({ copied: false }), 1600)
-    })
+      setTimeout(() => this.setState({ copied: false }), 1600);
+    });
   }
   render() {
     const {
@@ -22,8 +22,8 @@ class ColorBox extends Component {
       moreUrl,
       showingFullPalette,
       classes
-    } = this.props
-    const { copied } = this.state
+    } = this.props;
+    const { copied } = this.state;
 
     return (
       <CopyToClipboard text={background} onCopy={this.changeCopyState}>
@@ -56,8 +56,8 @@ class ColorBox extends Component {
           )}
         </div>
       </CopyToClipboard>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(ColorBox)
+export default withStyles(styles)(ColorBox);
